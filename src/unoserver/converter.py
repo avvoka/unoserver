@@ -152,6 +152,16 @@ class UnoConverter:
             import_path, "_default", 0, input_props
         )
 
+        for ii in range(2):
+            try:
+                document.refresh()
+                indexes = document.getDocumentIndexes()
+            except AttributeError:
+                break
+            else:
+                for i in range(0, indexes.getCount()):
+                    indexes.getByIndex(i).update()
+
         # Now do the conversion
         try:
             # Figure out document type:
