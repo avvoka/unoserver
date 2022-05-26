@@ -154,6 +154,7 @@ class UnoConverter:
 
         for ii in range(2):
             try:
+                document.refresh()
                 indexes = document.getDocumentIndexes()
             except AttributeError:
                 break
